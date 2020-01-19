@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <Spinner v-if="loading" />
+    <Spinner v-if="getLoading" />
     <div v-else>
       <Header />
-      <p v-if="msg" class="text-center pt-5 mt-5">{{ msg }}</p>
+      <p v-if="getMsg" class="text-center pt-5 mt-5">{{ getMsg }}</p>
       <div class="wrapper pt-5 px-2">
         <ListCard
-          v-for="(employee, index) in curatedList.results"
+          v-for="(employee, index) in getCuratedList.results"
           :picture="employee.picture.medium"
           :firstname="employee.name.first"
           :lastname="employee.name.last"
@@ -30,7 +30,7 @@ export default {
   data: () => ({
     input: ''
   }),
-  computed: mapGetters(['allEmployees', 'loading', 'curatedList', 'msg']),
+  computed: mapGetters(['getLoading', 'getCuratedList', 'getMsg']),
   components: {
     Header,
     Spinner,

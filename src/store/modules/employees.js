@@ -110,7 +110,7 @@ export default ({
     }
   },
   getters: {
-    curatedList: (state, getters, rootState) => {
+    getCuratedList: (state, getters, rootState) => {
       if (!state.curatedList.results && rootState.search.listSearch === '') {
         return state.employees
       } else if (
@@ -122,8 +122,8 @@ export default ({
         return state.curatedList
       }
     },
-    msg: state => state.msg,
-    allEmployees: state => state.employees,
-    loading: state => state.loading
+    getMsg: state => state.msg,
+    getAllEmployees: state => state.employees,
+    getLoading: state => state.loading
   }
 })
