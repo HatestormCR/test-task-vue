@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <v-app>
+    <div id="app">
     <router-view/>
   </div>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import { mapActions } from 'vuex'
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+export default {
+  name: 'App',
+  methods: mapActions(['fetchEmployees']),
+  async mounted () {
+    this.fetchEmployees()
   }
 }
+</script>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .v-application ul {
+    padding-left: 0!important;
+  }
+
+  .v-application a {
+    color: inherit!important;
+  }
+
+  .wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .modal-open {
+    padding-right: 0!important;
+  }
+
+  .v-menu__content {
+    max-width: 100%!important;
+  }
 </style>
